@@ -10,6 +10,8 @@
     <modules>
         <module>spring-cloud-alibaba-nacos-provider</module>
         <module>spring-cloud-alibaba-dto</module>
+        <module>spring-cloud-alibaba-nacos-consumer</module>
+        <module>spring-cloud-alibaba-nacos-consumer-feign</module>
     </modules>
     <packaging>pom</packaging>
     
@@ -21,7 +23,7 @@
     
     <properties>
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
-        <spring-cloud-alibaba.version>0.2.1</spring-cloud-alibaba.version>
+        <spring-cloud-alibaba.version>0.2.1.RELEASE</spring-cloud-alibaba.version>
     </properties>
 
     <dependencyManagement>
@@ -33,13 +35,15 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
             <dependency>
-                <groupId>com.alibaba.cloud</groupId>
+                <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            
             <dependency>
                 <groupId>com.example</groupId>
                 <artifactId>spring-cloud-alibaba-dto</artifactId>
