@@ -12,6 +12,7 @@
         <module>spring-cloud-alibaba-dto</module>
         <module>spring-cloud-alibaba-consumer</module>
         <module>spring-cloud-alibaba-consumer-feign</module>
+        <module>spring-cloud-alibaba-gateway</module>
     </modules>
     <packaging>pom</packaging>
     
