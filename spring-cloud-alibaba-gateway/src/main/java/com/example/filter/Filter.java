@@ -27,7 +27,7 @@ public class Filter implements GlobalFilter, Ordered {
         ServerHttpRequest request = exchange.getRequest();
         ServerHttpResponse response = exchange.getResponse();
         String token = request.getQueryParams().getFirst("token");// 第一个名字叫token的参数
-        if (token == null) {
+        if (token != null) {
             // 未授权，然后关闭请求
             DataBufferFactory dataBufferFactory = response.bufferFactory();
             HttpHeaders headers = response.getHeaders();
