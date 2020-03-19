@@ -1,8 +1,10 @@
 package com.example.dto;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class UserResp extends BaseResp {
     private User user;
 }
