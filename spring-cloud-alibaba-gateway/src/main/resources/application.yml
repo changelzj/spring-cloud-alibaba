@@ -1,0 +1,41 @@
+# 无效
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+        
+server:
+  port: 9527
+  
+spring:
+  application:
+    name: spring-gateway
+    
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #与服务注册发现组件结合，这样可以采用服务名的路由策略
+      routes: 
+        - id: consumer #路由ID，此处采用自定义的路由ID
+          uri: lb://cloud-consumer #通过loadbanceclient方式去请求，//后面是注册在nacos上面的服务名
+          predicates:  #谓词，主要用来匹配用户的请求
+            - Method=GET,POST #Method方法谓词，这里只支持GET POST请求
+        
+        - id: consumer-feign
+          uri: lb://feign-consumer
+          predicates: 
+            - Method=GET,POST
+        
+    nacos:
+      discovery:
+        server-addr: 192.168.228.101:8848
+        
+        
+    sentinel:
+      transport:
+        dashboard: 192.168.228.101:8088
+        port: 7778
+        
+        
